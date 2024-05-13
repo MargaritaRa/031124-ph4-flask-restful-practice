@@ -12,4 +12,34 @@ db = SQLAlchemy(metadata=metadata)
 
 # MODELS
 
-# WRITE MODELS HERE
+class WaterThing(db.Model):
+    
+    __tablename__ = "water_things_table"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False)
+    species = db.Column(db.String)
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'species': self.species
+        }
+    
+class UnderSeaHouse(db.Model):
+    
+    __tablename__ = "under_sea_house_table"
+
+    id = db.Column(db.Integer, primary_key=True)
+    house_type = db.Column(db.String, nullable=False)
+    comfortable = db.Column(db.String)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'house_type': self.house_type,
+            'comfortable': self.comfortable
+        }
+            
